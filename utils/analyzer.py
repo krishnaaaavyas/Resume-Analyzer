@@ -1,40 +1,62 @@
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from data.skill_aliases import SKILL_ALIASES
 
 vectorizer = TfidfVectorizer()
 
-def load_skills():
-    with open("data/skills.txt", "r") as f:
-        skills = [line.strip() for line in f if line.strip()]
-    return skills
-
-
-SKILLS = load_skills()
 
 def extract_skills(text):
     text = text.lower()
-    text = text.replace("node.js", "nodejs")
-    text = text.replace("react.js", "react")
+    text = text.replace("c++", "cpp")
+    text = text.replace("c#", "csharp")
     text = re.sub(r'[^\w\s+]', ' ', text)
-
 
     found_skills = set()
     words = text.split()
-    for skill in SKILLS:
-        if len(skill.split()) == 1:
-          if skill in words:
-            found_skills.add(skill)
-        else:
-            if skill.lower() in text:
-                found_skills.add(skill)
+
+    for skill, aliases in SKILL_ALIASES.items():
+
+        for alias in aliases:
+
+            alias = alias.lower()
+
+            # single-word alias
+            if len(alias.split()) == 1:
+
+                if alias in words:
+                    found_skills.add(skill)
+                    break
+
+            # multi-word alias
+            else:
+                phrase = alias.split()
+                for i in range(len(words) - len(phrase) + 1):
+                    if words[i:i+len(phrase)] == phrase:
+                        found_skills.add(skill)
+                        break
+
     return found_skills
 
 
-def calculate_similarity(resume_text,job_description):
-    vectors = vectorizer.fit_transform([resume_text, job_description])
-    score = cosine_similarity(vectors[0], vectors[1])[0][0]
-    return round(score*100, 2)
+def calculate_similarity(resume_text, job_description):
+
+    resume_skills = extract_skills(resume_text)
+    job_skills = extract_skills(job_description)
+
+    resume_string = " ".join(resume_skills)
+    job_string = " ".join(job_skills)
+
+    vectors = vectorizer.fit_transform(
+        [resume_string, job_string]
+    )
+
+    score = cosine_similarity(
+        vectors[0],
+        vectors[1]
+    )[0][0]
+
+    return round(score * 100, 2)
 
 
 def analyze_skill_gap(resume_text, job_description):
