@@ -1,0 +1,302 @@
+{
+  "basic_exact_match": {
+    "purpose": "Verify exact skill matching.",
+
+    "resume_text": "Python React MongoDB Git",
+
+    "job_description": "Looking for React developer with MongoDB and Git experience.",
+
+    "expected_resume_skills": [
+      "python",
+      "react",
+      "mongodb",
+      "git"
+    ],
+
+    "expected_job_skills": [
+      "react",
+      "mongodb",
+      "git"
+    ],
+
+    "expected_matched_skills": [
+      "react",
+      "mongodb",
+      "git"
+    ],
+
+    "expected_missing_skills": []
+  },
+
+  "react_alias": {
+    "purpose": "ReactJS should normalize to react.",
+
+    "resume_text": "ReactJS",
+
+    "job_description": "Looking for React developer.",
+
+    "expected_resume_skills": [
+      "react"
+    ],
+
+    "expected_job_skills": [
+      "react"
+    ],
+
+    "expected_matched_skills": [
+      "react"
+    ],
+
+    "expected_missing_skills": []
+  },
+
+  "node_alias": {
+    "purpose": "Node JS should normalize to nodejs.",
+
+    "resume_text": "Node JS",
+
+    "job_description": "Looking for Node.js developer.",
+
+    "expected_resume_skills": [
+      "nodejs"
+    ],
+
+    "expected_job_skills": [
+      "nodejs"
+    ],
+
+    "expected_matched_skills": [
+      "nodejs"
+    ],
+
+    "expected_missing_skills": []
+  },
+
+  "mongodb_alias": {
+    "purpose": "Mongo DB should normalize to mongodb.",
+
+    "resume_text": "Mongo DB",
+
+    "job_description": "Looking for MongoDB experience.",
+
+    "expected_resume_skills": [
+      "mongodb"
+    ],
+
+    "expected_job_skills": [
+      "mongodb"
+    ],
+
+    "expected_matched_skills": [
+      "mongodb"
+    ],
+
+    "expected_missing_skills": []
+  },
+
+  "oop_alias": {
+    "purpose": "Object Oriented Programming should normalize to oop.",
+
+    "resume_text": "Object Oriented Programming",
+
+    "job_description": "Looking for OOP concepts.",
+
+    "expected_resume_skills": [
+      "oop"
+    ],
+
+    "expected_job_skills": [
+      "oop"
+    ],
+
+    "expected_matched_skills": [
+      "oop"
+    ],
+
+    "expected_missing_skills": []
+  },
+
+  "java_vs_javascript": {
+    "purpose": "Java must not match JavaScript.",
+
+    "resume_text": "Java",
+
+    "job_description": "Looking for JavaScript developer.",
+
+    "expected_resume_skills": [
+      "java"
+    ],
+
+    "expected_job_skills": [
+      "javascript"
+    ],
+
+    "expected_matched_skills": [],
+
+    "expected_missing_skills": [
+      "javascript"
+    ]
+  },
+
+  "c_vs_cpp": {
+    "purpose": "C must not match C++.",
+
+    "resume_text": "C",
+
+    "job_description": "Looking for C++ developer.",
+
+    "expected_resume_skills": [
+      "c"
+    ],
+
+    "expected_job_skills": [
+      "c++"
+    ],
+
+    "expected_matched_skills": [],
+
+    "expected_missing_skills": [
+      "c++"
+    ]
+  },
+
+  "multiword_skill": {
+    "purpose": "Machine Learning phrase detection.",
+
+    "resume_text": "Machine Learning",
+
+    "job_description": "Looking for Machine Learning engineer.",
+
+    "expected_resume_skills": [
+      "machine learning"
+    ],
+
+    "expected_job_skills": [
+      "machine learning"
+    ],
+
+    "expected_matched_skills": [
+      "machine learning"
+    ],
+
+    "expected_missing_skills": []
+  },
+
+  "multiple_multiword_skills": {
+    "purpose": "Detect multiple consecutive-word skills.",
+
+    "resume_text": "Machine Learning Computer Networks Operating Systems",
+
+    "job_description": "Looking for Computer Networks and Operating Systems.",
+
+    "expected_resume_skills": [
+      "machine learning",
+      "computer networks",
+      "operating systems"
+    ],
+
+    "expected_job_skills": [
+      "computer networks",
+      "operating systems"
+    ],
+
+    "expected_matched_skills": [
+      "computer networks",
+      "operating systems"
+    ],
+
+    "expected_missing_skills": []
+  },
+
+  "formatting_commas": {
+    "purpose": "Comma-separated skills should be detected.",
+
+    "resume_text": "Python, React, MongoDB, Git",
+
+    "job_description": "Looking for React and Git.",
+
+    "expected_resume_skills": [
+      "python",
+      "react",
+      "mongodb",
+      "git"
+    ],
+
+    "expected_job_skills": [
+      "react",
+      "git"
+    ],
+
+    "expected_matched_skills": [
+      "react",
+      "git"
+    ],
+
+    "expected_missing_skills": []
+  },
+
+  "formatting_newlines": {
+    "purpose": "Newline-separated skills should be detected.",
+
+    "resume_text": "Python\nReact\nMongoDB\nGit",
+
+    "job_description": "Looking for React and MongoDB.",
+
+    "expected_resume_skills": [
+      "python",
+      "react",
+      "mongodb",
+      "git"
+    ],
+
+    "expected_job_skills": [
+      "react",
+      "mongodb"
+    ],
+
+    "expected_matched_skills": [
+      "react",
+      "mongodb"
+    ],
+
+    "expected_missing_skills": []
+  },
+
+  "no_matching_skills": {
+    "purpose": "No overlap should produce zero matches.",
+
+    "resume_text": "Python Django",
+
+    "job_description": "Looking for React developer.",
+
+    "expected_resume_skills": [
+      "python",
+      "django"
+    ],
+
+    "expected_job_skills": [
+      "react"
+    ],
+
+    "expected_matched_skills": [],
+
+    "expected_missing_skills": [
+      "react"
+    ]
+  },
+  "no_recognized_skills": {
+    "purpose": "No recognized skills should produce empty lists.",
+
+    "resume_text": "Cooking, Painting",
+
+    "job_description": "Looking for Dancing instructor.",
+
+    "expected_resume_skills": [],
+
+    "expected_job_skills": [],
+
+    "expected_matched_skills": [],
+
+    "expected_missing_skills": []
+  }
+}

@@ -3,7 +3,7 @@ SKILL_ALIASES = {
     # Languages
     "python": ["python"],
     "java": ["java"],
-    "javascript": ["javascript", "js"],
+    "javascript": ["javascript"],
     "typescript": ["typescript", "ts"],
     "c": ["c"],
     "c++": ["c++", "cpp"],
