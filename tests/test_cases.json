@@ -298,5 +298,40 @@
     "expected_matched_skills": [],
 
     "expected_missing_skills": []
-  }
+  },
+  "rejected_skill_not_counted": {
+  "purpose": "A negated skill must not count as a possessed resume skill.",
+  "resume_text": "No experience with AWS.",
+  "job_description": "AWS experience required.",
+  "expected_resume_skills": [],
+  "expected_job_skills": ["aws"],
+  "expected_matched_skills": [],
+  "expected_missing_skills": ["aws"]
+},
+"learning_skill_not_counted": {
+  "purpose": "A skill currently being learned must not count as possessed.",
+  "resume_text": "Currently learning Docker.",
+  "job_description": "Docker experience required.",
+  "expected_resume_skills": [],
+  "expected_job_skills": ["docker"],
+  "expected_matched_skills": [],
+  "expected_missing_skills": ["docker"]
+},"medium_confidence_skill_counted": {
+  "purpose": "A skill supported by medium-confidence evidence should count.",
+  "resume_text": "Worked with Python during coursework.",
+  "job_description": "Python experience required.",
+  "expected_resume_skills": ["python"],
+  "expected_job_skills": ["python"],
+  "expected_matched_skills": ["python"],
+  "expected_missing_skills": []
+},
+"high_confidence_skill_counted": {
+  "purpose": "A skill supported by implementation evidence should count.",
+  "resume_text": "Developed a React dashboard.",
+  "job_description": "React experience required.",
+  "expected_resume_skills": ["react"],
+  "expected_job_skills": ["react"],
+  "expected_matched_skills": ["react"],
+  "expected_missing_skills": []
+}
 }
